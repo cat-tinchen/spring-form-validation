@@ -4,9 +4,15 @@ on:
   workflow_dispatch
 
 jobs:
-  print-username:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: build
+        run: mvn install
+        
       - name: Print the input name to STDOUT
         run: echo The username is Christina
